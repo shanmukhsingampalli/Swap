@@ -16,7 +16,7 @@ function Products() {
 
     try {
       const response = await fetch(
-        "http://localhost:4000/api/workouts/products",
+        "https://swap-backend-0y1z.onrender.com/api/workouts/products",
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -48,7 +48,7 @@ function Products() {
 
     try {
       const response = await fetch(
-        `http://localhost:4000/api/workouts/selected?title=${encodeURIComponent(
+        `https://swap-backend-0y1z.onrender.com/api/workouts/selected?title=${encodeURIComponent(
           item
         )}`,
         {
