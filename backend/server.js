@@ -8,8 +8,8 @@ const userRoutes = require("./routes/user");
 const app = express();
 app.use(
   cors({
-    origin: "https://swap-45nv.onrender.com",
-    credentials: true,
+    // origin: "https://swap-45nv.onrender.com",
+    // credentials: true,
   })
 );
 
