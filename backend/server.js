@@ -6,12 +6,7 @@ const workoutRoutes = require("./routes/workouts");
 const userRoutes = require("./routes/user");
 
 const app = express();
-app.use(
-  cors({
-    // origin: "https://swap-45nv.onrender.com",
-    // credentials: true,
-  })
-);
+app.use(cors({}));
 
 app.use(express.json());
 app.use((req, res, next) => {
