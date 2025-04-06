@@ -56,7 +56,7 @@ const Login = () => {
           </label>
           <input
             type="text"
-            onChange={(e) => setUsername(e.target.value.toUpperCase())}
+            onChange={(e) => setUsername(e.target.value)}
             value={username}
             style={{
               width: "100%",
