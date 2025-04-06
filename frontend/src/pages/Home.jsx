@@ -27,14 +27,43 @@ function Home() {
     }
   }, [dispatch, user]);
   return (
-    <div className="home">
-      <div className="workouts">
+    <div
+      className="home"
+      style={{
+        padding: "20px",
+        maxWidth: "1200px",
+        margin: "0 auto",
+        display: "flex",
+        flexDirection: window.innerWidth <= 768 ? "column" : "row",
+        gap: "20px",
+      }}
+    >
+      <div
+        className="workouts"
+        style={{
+          flex: "1",
+          display: "grid",
+          gap: "20px",
+          gridTemplateColumns:
+            window.innerWidth <= 480
+              ? "1fr"
+              : "repeat(auto-fill, minmax(300px, 1fr))",
+        }}
+      >
         {workouts &&
           workouts.map((workout) => (
             <WorkoutDetails key={workout._id} workout={workout} />
           ))}
       </div>
-      <div className="workout-form-container" style={{ marginRight: "20px" }}>
+      <div
+        className="workout-form-container"
+        style={{
+          width: window.innerWidth <= 768 ? "100%" : "300px",
+          position: "sticky",
+          top: "20px",
+          height: "fit-content",
+        }}
+      >
         <WorkoutForm />
       </div>
     </div>

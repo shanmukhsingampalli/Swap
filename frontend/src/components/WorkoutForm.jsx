@@ -76,40 +76,90 @@ const WorkoutForm = () => {
         padding: "25px",
         borderRadius: "10px",
         marginRight: "20px",
+        maxWidth: "600px",
+        width: "90%",
+        margin: "20px auto",
+        boxShadow: "0 0 10px rgba(0,0,0,0.1)",
+        transition: "transform 0.3s ease",
       }}
     >
-      <h3>Add a New Stationary</h3>
-      <label>Title:</label>
+      <h3
+        style={{
+          textAlign: "center",
+          color: "#333",
+          marginBottom: "20px",
+        }}
+      >
+        Add a New Stationary
+      </h3>
+
+      <label style={{ display: "block", marginBottom: "5px", color: "#555" }}>
+        Title:
+      </label>
       <input
         type="text"
         onChange={(e) => setTitle(e.target.value)}
         value={title}
         className={emptyFields.includes("title") ? "error" : ""}
+        style={{
+          width: "100%",
+          padding: "8px",
+          marginBottom: "15px",
+          borderRadius: "4px",
+          border: "1px solid #ddd",
+          transition: "border-color 0.3s ease",
+        }}
       />
 
-      <label>Quantity:</label>
+      <label style={{ display: "block", marginBottom: "5px", color: "#555" }}>
+        Quantity:
+      </label>
       <input
         type="number"
         onChange={(e) => setQuantity(e.target.value)}
         value={quantity}
         className={emptyFields.includes("quantity") ? "error" : ""}
+        style={{
+          width: "100%",
+          padding: "8px",
+          marginBottom: "15px",
+          borderRadius: "4px",
+          border: "1px solid #ddd",
+        }}
       />
 
-      <label>Contact Number:</label>
+      <label style={{ display: "block", marginBottom: "5px", color: "#555" }}>
+        Contact Number:
+      </label>
       <input
         type="number"
         onChange={(e) => setNum(e.target.value)}
         value={num}
         className={emptyFields.includes("num") ? "error" : ""}
+        style={{
+          width: "100%",
+          padding: "8px",
+          marginBottom: "15px",
+          borderRadius: "4px",
+          border: "1px solid #ddd",
+        }}
       />
-      <label>Image:</label>
-      <div className="file-input-container">
+
+      <label style={{ display: "block", marginBottom: "5px", color: "#555" }}>
+        Image:
+      </label>
+      <div className="file-input-container" style={{ marginBottom: "20px" }}>
         <input
           type="file"
           onChange={handleFileUpload}
           accept="image/*"
           className="file-input"
           id="file-upload"
+          style={{
+            width: "100%",
+            padding: "8px",
+            marginBottom: "10px",
+          }}
         />
         <label htmlFor="file-upload" className="file-label"></label>
         {url && (
@@ -117,13 +167,45 @@ const WorkoutForm = () => {
             <img
               src={url}
               alt="Preview"
-              style={{ maxWidth: "200px", marginTop: "10px" }}
+              style={{
+                maxWidth: "100%",
+                height: "auto",
+                marginTop: "10px",
+                borderRadius: "4px",
+              }}
             />
           </div>
         )}
       </div>
-      <button>Submit</button>
-      {error && <div className="error">{error}</div>}
+      <button
+        style={{
+          width: "100%",
+          padding: "10px",
+          backgroundColor: "#4CAF50",
+          color: "white",
+          border: "none",
+          borderRadius: "4px",
+          cursor: "pointer",
+          transition: "background-color 0.3s ease",
+          ":hover": {
+            backgroundColor: "#45a049",
+          },
+        }}
+      >
+        Submit
+      </button>
+      {error && (
+        <div
+          className="error"
+          style={{
+            color: "red",
+            marginTop: "10px",
+            textAlign: "center",
+          }}
+        >
+          {error}
+        </div>
+      )}
     </form>
   );
 };

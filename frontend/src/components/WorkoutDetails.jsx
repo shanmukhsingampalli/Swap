@@ -26,24 +26,41 @@ const WorkoutDetails = ({ workout }) => {
     }
   };
   return (
-    <div className="workout-details">
-      <h4>{workout.title}</h4>
+    <div
+      className="workout-details"
+      style={{
+        padding: "20px",
+        borderRadius: "8px",
+        backgroundColor: "#fff",
+        boxShadow: "0 2px 8px rgba(0,0,0,0.1)",
+        margin: "20px 0",
+        transition: "all 0.3s ease",
+        maxWidth: "600px",
+        width: "100%",
+      }}
+    >
+      <h4
+        style={{
+          color: "#333",
+          fontSize: "1.5rem",
+          marginBottom: "15px",
+          fontWeight: "bold",
+        }}
+      >
+        {workout.title}
+      </h4>
       <div
         className="image-container"
         style={{
           width: "100%",
-          maxWidth: "200px",
+          maxWidth: "300px",
           margin: "15px auto",
           padding: "10px",
           borderRadius: "8px",
           boxShadow: "0 2px 4px rgba(0,0,0,0.1)",
-          transition: "transform 0.3s ease, box-shadow 0.3s ease",
+          transition: "transform 0.3s ease",
           cursor: "pointer",
           overflow: "hidden",
-          "&:hover": {
-            transform: "translateY(-5px)",
-            boxShadow: "0 5px 15px rgba(0,0,0,0.2)",
-          },
         }}
       >
         <img
@@ -69,18 +86,51 @@ const WorkoutDetails = ({ workout }) => {
         />
       </div>
 
-      <p>
+      <p
+        style={{
+          fontSize: "1.1rem",
+          margin: "10px 0",
+          color: "#555",
+        }}
+      >
         <strong>Quantity: </strong>
         {workout.quantity}
       </p>
-      <p>
+      <p
+        style={{
+          fontSize: "1.1rem",
+          margin: "10px 0",
+          color: "#555",
+        }}
+      >
         <strong>Contact Number: </strong>
         {workout.num}
       </p>
-      <p>
+      <p
+        style={{
+          fontSize: "0.9rem",
+          color: "#888",
+          fontStyle: "italic",
+        }}
+      >
         {formatDistanceToNow(new Date(workout.createdAt), { addSuffix: true })}
       </p>
-      <span className="material-symbols-outlined" onClick={handleClick}>
+      <span
+        className="material-symbols-outlined"
+        onClick={handleClick}
+        style={{
+          cursor: "pointer",
+          color: "#ff4444",
+          fontSize: "1.5rem",
+          padding: "5px",
+          borderRadius: "50%",
+          transition: "all 0.3s ease",
+          ":hover": {
+            backgroundColor: "#ffeeee",
+            transform: "scale(1.1)",
+          },
+        }}
+      >
         delete
       </span>
     </div>
