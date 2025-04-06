@@ -103,8 +103,27 @@ const WorkoutForm = () => {
         className={emptyFields.includes("num") ? "error" : ""}
       />
       <label>Image:</label>
-      <input type="file" onChange={handleFileUpload} />
-
+      <div className="file-input-container">
+        <input
+          type="file"
+          onChange={handleFileUpload}
+          accept="image/*"
+          className="file-input"
+          id="file-upload"
+        />
+        <label htmlFor="file-upload" className="file-label">
+          Choose File
+        </label>
+        {url && (
+          <div className="image-preview">
+            <img
+              src={url}
+              alt="Preview"
+              style={{ maxWidth: "200px", marginTop: "10px" }}
+            />
+          </div>
+        )}
+      </div>
       <button>Submit</button>
       {error && <div className="error">{error}</div>}
     </form>
