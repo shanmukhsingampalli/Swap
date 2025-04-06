@@ -2,7 +2,7 @@ import formatDistanceToNow from "date-fns/formatDistanceToNow";
 
 const ProductDetails = ({ product }) => {
   return (
-    <div className="workout-details">
+    <div className="product-details">
       <h4>{product.title}</h4>
       <div
         className="image-container"
