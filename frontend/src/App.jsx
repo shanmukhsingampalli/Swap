@@ -17,11 +17,11 @@ function App() {
           <Routes>
             <Route
               path="/products"
-              element={user ? <Products /> : <Navigate to="/login" />}
+              element={!user ? <Navigate to="/login" /> : <Products />}
             />
             <Route
               path="/"
-              element={user ? <Home /> : <Navigate to="/login" />}
+              element={!user ? <Navigate to="/login" /> : <Home />}
             />
             <Route
               path="/help"
