@@ -111,9 +111,6 @@ const WorkoutForm = () => {
           className="file-input"
           id="file-upload"
         />
-        <label htmlFor="file-upload" className="file-label">
-          Choose File
-        </label>
         {url && (
           <div className="image-preview">
             <img
