@@ -72,7 +72,7 @@ const WorkoutForm = () => {
       className="create"
       onSubmit={async (e) => {
         await handleSubmit(e);
-        if (!error) {
+        if (title && quantity && num && url) {
           window.location.reload();
         }
       }}
