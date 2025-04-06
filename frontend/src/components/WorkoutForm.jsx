@@ -183,17 +183,18 @@ const WorkoutForm = () => {
         )}
       </div>
       <button
+        disabled={!url}
         style={{
           width: "100%",
           padding: "10px",
-          backgroundColor: "#4CAF50",
+          backgroundColor: url ? "#4CAF50" : "#cccccc",
           color: "white",
           border: "none",
           borderRadius: "4px",
-          cursor: "pointer",
+          cursor: url ? "pointer" : "not-allowed",
           transition: "background-color 0.3s ease",
           ":hover": {
-            backgroundColor: "#45a049",
+            backgroundColor: url ? "#45a049" : "#cccccc",
           },
         }}
       >
