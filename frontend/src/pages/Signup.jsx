@@ -7,7 +7,7 @@ const Signup = () => {
   const { signup, error, isLoading } = useSignup();
   const handleSubmit = async (e) => {
     e.preventDefault();
-    await signup(username, password);
+    await signup(username.toUpperCase(), password);
   };
   return (
     <div
@@ -55,7 +55,7 @@ const Signup = () => {
           </label>
           <input
             type="text"
-            onChange={(e) => setUsername(e.target.value.toUpperCase())}
+            onChange={(e) => setUsername(e.target.value)}
             value={username}
             style={{
               width: "100%",
