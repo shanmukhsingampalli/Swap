@@ -8,8 +8,27 @@ const WorkoutForm = () => {
   const [title, setTitle] = useState("");
   const [quantity, setQuantity] = useState("");
   const [num, setNum] = useState("");
+  const [url, setUrl] = useState("");
   const [error, setError] = useState(null);
   const [emptyFields, setEmptyFields] = useState([]);
+
+  const handleFileUpload = async (event) => {
+    const file = event.target.files[0];
+    if (!file) return;
+    const data = new FormData();
+    data.append("file", file);
+    data.append("upload_preset", "swap_cloudinary"); // Replace with your Cloudinary upload preset
+    data.append("cloud_name", "dad9jolaq"); // Replace with your Cloudinary cloud name
+    const res = await fetch(
+      "https://api.cloudinary.com/v1_1/dad9jolaq/image/upload",
+      {
+        method: "POST",
+        body: data,
+      }
+    );
+    const uploadedImageURL = await res.json();
+    setUrl(uploadedImageURL.url);
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -18,7 +37,7 @@ const WorkoutForm = () => {
       return;
     }
 
-    const workout = { title, quantity, num };
+    const workout = { title, quantity, num, url };
     const response = await fetch(
       "https://swap-backend-0y1z.onrender.com/api/workouts",
       {
@@ -41,6 +60,7 @@ const WorkoutForm = () => {
       setTitle("");
       setQuantity("");
       setNum("");
+      setUrl("");
       setError(null);
       setEmptyFields([]);
       console.log("new workout added", json);
@@ -82,6 +102,8 @@ const WorkoutForm = () => {
         value={num}
         className={emptyFields.includes("num") ? "error" : ""}
       />
+      <label>Image:</label>
+      <input type="file" onChange={handleFileUpload} />
 
       <button>Submit</button>
       {error && <div className="error">{error}</div>}

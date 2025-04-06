@@ -38,7 +38,7 @@ const getWorkout = async (req, res) => {
 };
 
 const createWorkout = async (req, res) => {
-  const { title, quantity, num } = req.body;
+  const { title, quantity, num, url } = req.body;
   let emptyFields = [];
   if (!title) {
     emptyFields.push("title");
@@ -48,6 +48,9 @@ const createWorkout = async (req, res) => {
   }
   if (!num) {
     emptyFields.push("num");
+  }
+  if (!url) {
+    emptyFields.push("url");
   }
   if (emptyFields.length > 0) {
     return res
@@ -61,6 +64,7 @@ const createWorkout = async (req, res) => {
       quantity,
       num,
       user_id,
+      url,
     });
     res.status(200).json(workout);
   } catch (error) {
