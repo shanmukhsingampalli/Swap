@@ -39,17 +39,6 @@ function Home() {
       }}
     >
       <div
-        className="workout-form-container"
-        style={{
-          width: window.innerWidth <= 768 ? "100%" : "300px",
-          position: "sticky",
-          top: "20px",
-          height: "fit-content",
-        }}
-      >
-        <WorkoutForm />
-      </div>
-      <div
         className="workouts"
         style={{
           flex: "1",
@@ -65,6 +54,17 @@ function Home() {
           workouts.map((workout) => (
             <WorkoutDetails key={workout._id} workout={workout} />
           ))}
+      </div>
+      <div
+        className="workout-form-container"
+        style={{
+          width: window.innerWidth <= 768 ? "100%" : "300px",
+          position: "sticky",
+          top: "20px",
+          height: "fit-content",
+        }}
+      >
+        <WorkoutForm />
       </div>
     </div>
   );
