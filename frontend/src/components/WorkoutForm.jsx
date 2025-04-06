@@ -70,7 +70,12 @@ const WorkoutForm = () => {
   return (
     <form
       className="create"
-      onSubmit={handleSubmit}
+      onSubmit={async (e) => {
+        await handleSubmit(e);
+        if (!error) {
+          window.location.reload();
+        }
+      }}
       style={{
         backgroundColor: "white",
         padding: "25px",
