@@ -19,10 +19,15 @@ const Login = () => {
           "url('https://plus.unsplash.com/premium_photo-1664303228218-c7eedbffe762?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')",
         backgroundSize: "cover",
         backgroundPosition: "center",
+        backgroundRepeat: "no-repeat",
+        backgroundAttachment: "fixed",
+        width: "100%",
+        height: "100vh",
+        margin: 0,
+        padding: 0,
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
-        padding: "20px",
       }}
     >
       <form
@@ -38,6 +43,7 @@ const Login = () => {
           boxShadow: "0 8px 32px rgba(0, 0, 0, 0.25)",
           border: "1px solid rgba(255, 255, 255, 0.18)",
           transition: "transform 0.2s",
+          margin: "20px",
         }}
       >
         <h3
