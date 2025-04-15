@@ -16,7 +16,7 @@ const Login = () => {
       style={{
         minHeight: "100vh",
         backgroundImage:
-          "url('https://cdn.pixabay.com/photo/2020/09/17/08/27/desk-5579010_1280.jpg')", // Replace with any green stationery image
+          "url('https://plus.unsplash.com/premium_photo-1664303228218-c7eedbffe762?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')", // Replace with any green stationery image
         backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
