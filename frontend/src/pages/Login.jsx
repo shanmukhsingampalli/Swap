@@ -5,24 +5,17 @@ const Login = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const { login, error, isLoading } = useLogin();
-
   const handleSubmit = async (e) => {
     e.preventDefault();
     await login(username.toUpperCase(), password);
   };
-
   return (
     <div
       style={{
-        minHeight: "100vh",
-        backgroundImage:
-          "url('https://plus.unsplash.com/premium_photo-1664303228218-c7eedbffe762?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')", // Replace with any green stationery image
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-        backgroundRepeat: "no-repeat",
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
+        minHeight: "80vh",
         padding: "20px",
       }}
     >
@@ -33,18 +26,18 @@ const Login = () => {
           width: "100%",
           maxWidth: "400px",
           padding: "30px",
-          background: "rgba(255, 255, 255, 0.85)",
-          borderRadius: "16px",
-          boxShadow: "0 10px 25px rgba(0, 0, 0, 0.2)",
+          backgroundColor: "white",
+          borderRadius: "15px",
+          boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
+          transition: "transform 0.2s",
         }}
       >
         <h3
           style={{
             textAlign: "center",
-            color: "#2f6f4e",
+            color: "#1aac83",
             marginBottom: "25px",
-            fontSize: "26px",
-            fontWeight: "600",
+            fontSize: "24px",
           }}
         >
           Log In
@@ -68,11 +61,14 @@ const Login = () => {
             style={{
               width: "100%",
               padding: "12px",
-              border: "2px solid #d0e4d0",
-              borderRadius: "10px",
+              border: "2px solid #e0e0e0",
+              borderRadius: "8px",
               fontSize: "16px",
+              transition: "border-color 0.3s",
               outline: "none",
-              backgroundColor: "#f8fff8",
+              ":focus": {
+                borderColor: "#1aac83",
+              },
             }}
           />
         </div>
@@ -95,11 +91,14 @@ const Login = () => {
             style={{
               width: "100%",
               padding: "12px",
-              border: "2px solid #d0e4d0",
-              borderRadius: "10px",
+              border: "2px solid #e0e0e0",
+              borderRadius: "8px",
               fontSize: "16px",
+              transition: "border-color 0.3s",
               outline: "none",
-              backgroundColor: "#f8fff8",
+              ":focus": {
+                borderColor: "#1aac83",
+              },
             }}
           />
         </div>
@@ -109,14 +108,17 @@ const Login = () => {
           style={{
             width: "100%",
             padding: "12px",
-            backgroundColor: "#67c18c",
+            backgroundColor: "#1aac83",
             color: "white",
             border: "none",
-            borderRadius: "10px",
+            borderRadius: "8px",
             fontSize: "16px",
             cursor: isLoading ? "not-allowed" : "pointer",
             opacity: isLoading ? 0.7 : 1,
             transition: "background-color 0.3s",
+            ":hover": {
+              backgroundColor: "#158463",
+            },
           }}
         >
           {isLoading ? "Logging in..." : "Log in"}
@@ -126,11 +128,11 @@ const Login = () => {
           <div
             style={{
               color: "#e7195a",
-              backgroundColor: "#fff1f3",
               textAlign: "center",
               marginTop: "20px",
               padding: "10px",
-              borderRadius: "6px",
+              backgroundColor: "#ffefef",
+              borderRadius: "4px",
               fontSize: "14px",
             }}
           >
@@ -141,5 +143,4 @@ const Login = () => {
     </div>
   );
 };
-
 export default Login;
