@@ -16,9 +16,10 @@ const Login = () => {
       style={{
         minHeight: "100vh",
         backgroundImage:
-          "url('https://plus.unsplash.com/premium_photo-1664303228218-c7eedbffe762?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')",
+          "url('https://cdn.pixabay.com/photo/2020/09/17/08/27/desk-5579010_1280.jpg')", // Replace with any green stationery image
         backgroundSize: "cover",
         backgroundPosition: "center",
+        backgroundRepeat: "no-repeat",
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
@@ -32,22 +33,18 @@ const Login = () => {
           width: "100%",
           maxWidth: "400px",
           padding: "30px",
-          background: "rgba(255, 255, 255, 0.15)",
-          backdropFilter: "blur(10px)",
-          borderRadius: "20px",
-          boxShadow: "0 8px 32px rgba(0, 0, 0, 0.25)",
-          border: "1px solid rgba(255, 255, 255, 0.18)",
-          transition: "transform 0.2s",
+          background: "rgba(255, 255, 255, 0.85)",
+          borderRadius: "16px",
+          boxShadow: "0 10px 25px rgba(0, 0, 0, 0.2)",
         }}
       >
         <h3
           style={{
             textAlign: "center",
-            color: "#ffffff",
+            color: "#2f6f4e",
             marginBottom: "25px",
             fontSize: "26px",
             fontWeight: "600",
-            textShadow: "1px 1px 3px rgba(0, 0, 0, 0.3)",
           }}
         >
           Log In
@@ -58,7 +55,7 @@ const Login = () => {
             style={{
               display: "block",
               marginBottom: "8px",
-              color: "#f0f0f0",
+              color: "#333",
               fontSize: "16px",
             }}
           >
@@ -71,11 +68,11 @@ const Login = () => {
             style={{
               width: "100%",
               padding: "12px",
-              border: "none",
+              border: "2px solid #d0e4d0",
               borderRadius: "10px",
               fontSize: "16px",
-              background: "rgba(255, 255, 255, 0.9)",
               outline: "none",
+              backgroundColor: "#f8fff8",
             }}
           />
         </div>
@@ -85,7 +82,7 @@ const Login = () => {
             style={{
               display: "block",
               marginBottom: "8px",
-              color: "#f0f0f0",
+              color: "#333",
               fontSize: "16px",
             }}
           >
@@ -98,11 +95,11 @@ const Login = () => {
             style={{
               width: "100%",
               padding: "12px",
-              border: "none",
+              border: "2px solid #d0e4d0",
               borderRadius: "10px",
               fontSize: "16px",
-              background: "rgba(255, 255, 255, 0.9)",
               outline: "none",
+              backgroundColor: "#f8fff8",
             }}
           />
         </div>
@@ -112,7 +109,7 @@ const Login = () => {
           style={{
             width: "100%",
             padding: "12px",
-            backgroundColor: "#1aac83",
+            backgroundColor: "#67c18c",
             color: "white",
             border: "none",
             borderRadius: "10px",
@@ -128,14 +125,13 @@ const Login = () => {
         {error && (
           <div
             style={{
-              color: "#fff",
-              backgroundColor: "rgba(231, 25, 90, 0.8)",
+              color: "#e7195a",
+              backgroundColor: "#fff1f3",
               textAlign: "center",
               marginTop: "20px",
               padding: "10px",
               borderRadius: "6px",
               fontSize: "14px",
-              fontWeight: "500",
             }}
           >
             {error}
