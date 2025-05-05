@@ -165,6 +165,7 @@ const borderVariants = {
   initial: {
     background: "linear-gradient(90deg, transparent, transparent)",
     padding: "2px",
+    border: "10px solid #1aac83",
   },
   animate: {
     background: [
@@ -174,6 +175,7 @@ const borderVariants = {
       "linear-gradient(0deg, #1aac83, transparent, transparent, transparent)",
       "linear-gradient(90deg, #1aac83, transparent, transparent, transparent)",
     ],
+    border: "10px solid #1aac83",
     transition: {
       duration: 4,
       repeat: Infinity,
