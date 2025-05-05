@@ -1,16 +1,22 @@
 import { useState } from "react";
 import { useSignup } from "../hooks/useSignup";
+import { motion } from "framer-motion";
 
 const Signup = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const { signup, error, isLoading } = useSignup();
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     await signup(username.toUpperCase(), password);
   };
+
   return (
-    <div
+    <motion.div
+      initial={{ opacity: 0, y: 40 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6 }}
       style={{
         display: "flex",
         justifyContent: "center",
@@ -19,9 +25,11 @@ const Signup = () => {
         padding: "20px",
       }}
     >
-      <form
+      <motion.form
         className="signup"
         onSubmit={handleSubmit}
+        whileHover={{ scale: 1.02 }}
+        transition={{ type: "spring", stiffness: 150 }}
         style={{
           width: "100%",
           maxWidth: "400px",
@@ -29,7 +37,6 @@ const Signup = () => {
           backgroundColor: "white",
           borderRadius: "15px",
           boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
-          transition: "transform 0.2s",
         }}
       >
         <h3
@@ -42,6 +49,7 @@ const Signup = () => {
         >
           Sign up
         </h3>
+
         <div style={{ marginBottom: "20px" }}>
           <label
             style={{
@@ -63,14 +71,11 @@ const Signup = () => {
               border: "2px solid #e0e0e0",
               borderRadius: "8px",
               fontSize: "16px",
-              transition: "border-color 0.3s",
               outline: "none",
-              ":focus": {
-                borderColor: "#1aac83",
-              },
             }}
           />
         </div>
+
         <div style={{ marginBottom: "20px" }}>
           <label
             style={{
@@ -92,15 +97,13 @@ const Signup = () => {
               border: "2px solid #e0e0e0",
               borderRadius: "8px",
               fontSize: "16px",
-              transition: "border-color 0.3s",
               outline: "none",
-              ":focus": {
-                borderColor: "#1aac83",
-              },
             }}
           />
         </div>
-        <button
+
+        <motion.button
+          whileTap={{ scale: 0.95 }}
           disabled={isLoading}
           style={{
             width: "100%",
@@ -113,16 +116,17 @@ const Signup = () => {
             cursor: isLoading ? "not-allowed" : "pointer",
             opacity: isLoading ? 0.7 : 1,
             transition: "background-color 0.3s",
-            ":hover": {
-              backgroundColor: "#158463",
-            },
           }}
         >
           {isLoading ? "Signing up..." : "Sign up"}
-        </button>
+        </motion.button>
+
         {error && (
-          <div
+          <motion.div
             className="error"
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.3 }}
             style={{
               color: "#e7195a",
               textAlign: "center",
@@ -134,10 +138,11 @@ const Signup = () => {
             }}
           >
             {error}
-          </div>
+          </motion.div>
         )}
-      </form>
-    </div>
+      </motion.form>
+    </motion.div>
   );
 };
+
 export default Signup;
