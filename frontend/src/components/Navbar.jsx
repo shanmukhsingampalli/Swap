@@ -126,6 +126,7 @@ const MotionLink = ({ to, children }) => (
       scale: 1.1,
       color: "#1aac83",
       rotate: -5,
+      boxShadow: "0 0 8px rgba(26, 172, 131, 0.5)",
       transition: { type: "spring", stiffness: 300 },
     }}
     whileTap={{
@@ -134,6 +135,10 @@ const MotionLink = ({ to, children }) => (
     }}
     style={{
       display: "inline-block",
+      position: "relative",
+      padding: "2px",
+      background: "linear-gradient(90deg, #1aac83, #2ecc71)",
+      borderRadius: "6px",
     }}
   >
     <Link
@@ -143,9 +148,11 @@ const MotionLink = ({ to, children }) => (
         fontSize: "clamp(1rem, 2vw, 1.25rem)",
         color: "#333",
         textDecoration: "none",
-        padding: "0.5rem",
+        padding: "0.5rem 1rem",
         borderRadius: "4px",
         transition: "all 0.3s ease",
+        background: "#fff",
+        display: "block",
       }}
     >
       {children}
