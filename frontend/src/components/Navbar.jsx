@@ -160,4 +160,26 @@ const MotionLink = ({ to, children }) => (
   </motion.div>
 );
 
+// Animated border styles for navbar
+const borderVariants = {
+  initial: {
+    background: "linear-gradient(90deg, transparent, transparent)",
+    padding: "2px",
+  },
+  animate: {
+    background: [
+      "linear-gradient(90deg, #1aac83, transparent, transparent, transparent)",
+      "linear-gradient(180deg, #1aac83, transparent, transparent, transparent)",
+      "linear-gradient(270deg, #1aac83, transparent, transparent, transparent)",
+      "linear-gradient(0deg, #1aac83, transparent, transparent, transparent)",
+      "linear-gradient(90deg, #1aac83, transparent, transparent, transparent)",
+    ],
+    transition: {
+      duration: 4,
+      repeat: Infinity,
+      ease: "linear",
+    },
+  },
+};
+
 export default Navbar;
