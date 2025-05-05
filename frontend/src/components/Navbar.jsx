@@ -1,15 +1,21 @@
 import { Link } from "react-router-dom";
 import { useLogout } from "../hooks/useLogout";
 import { useAuthContext } from "../hooks/useAuthContext";
+import { motion } from "framer-motion";
 
 function Navbar() {
   const { logout } = useLogout();
   const { user } = useAuthContext();
+
   const handleClick = () => {
     logout();
   };
+
   return (
-    <header
+    <motion.header
+      initial={{ y: -50, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ duration: 0.6, ease: "easeOut" }}
       style={{
         background: "#fff",
         boxShadow: "0 2px 4px rgba(0,0,0,0.1)",
@@ -29,22 +35,19 @@ function Navbar() {
           flexWrap: "wrap",
         }}
       >
-        <Link
-          to="/"
-          style={{
-            textDecoration: "none",
-            color: "#1aac83",
-            transition: "color 0.3s",
-          }}
-        >
-          <h1
+        <Link to="/" style={{ textDecoration: "none" }}>
+          <motion.h1
+            whileHover={{ scale: 1.05 }}
+            transition={{ type: "spring", stiffness: 300 }}
             style={{
+              color: "#1aac83",
               fontSize: "clamp(1.5rem, 4vw, 2rem)",
               margin: 0,
+              cursor: "pointer",
             }}
           >
             Stationary Swap
-          </h1>
+          </motion.h1>
         </Link>
 
         <nav
@@ -55,7 +58,7 @@ function Navbar() {
             flexWrap: "wrap",
           }}
         >
-          {user && (
+          {user ? (
             <div
               style={{
                 display: "flex",
@@ -64,24 +67,12 @@ function Navbar() {
                 flexWrap: "wrap",
               }}
             >
-              <Link
-                to="/products"
-                style={{
-                  fontWeight: "bold",
-                  fontSize: "clamp(1rem, 2vw, 1.25rem)",
-                  color: "#333",
-                  textDecoration: "none",
-                  padding: "0.5rem",
-                  borderRadius: "4px",
-                  transition: "all 0.3s",
-                  ":hover": {
-                    backgroundColor: "#f0f0f0",
-                  },
-                }}
-              >
-                Products
-              </Link>
-              <span
+              <MotionLink to="/products">Products</MotionLink>
+
+              <motion.span
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.4 }}
                 style={{
                   padding: "0.5rem",
                   color: "#1aac83",
@@ -89,9 +80,12 @@ function Navbar() {
                 }}
               >
                 {user.username}
-              </span>
-              <button
+              </motion.span>
+
+              <motion.button
                 onClick={handleClick}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
                 style={{
                   background: "#1aac83",
                   color: "white",
@@ -100,16 +94,12 @@ function Navbar() {
                   borderRadius: "4px",
                   cursor: "pointer",
                   transition: "background 0.3s",
-                  ":hover": {
-                    backgroundColor: "#158463",
-                  },
                 }}
               >
                 Log out
-              </button>
+              </motion.button>
             </div>
-          )}
-          {!user && (
+          ) : (
             <div
               style={{
                 display: "flex",
@@ -118,62 +108,35 @@ function Navbar() {
                 flexWrap: "wrap",
               }}
             >
-              <Link
-                to="/help"
-                style={{
-                  fontWeight: "bold",
-                  fontSize: "clamp(1rem, 2vw, 1.25rem)",
-                  color: "#333",
-                  textDecoration: "none",
-                  padding: "0.5rem",
-                  borderRadius: "4px",
-                  transition: "all 0.3s",
-                  ":hover": {
-                    backgroundColor: "#f0f0f0",
-                  },
-                }}
-              >
-                Help
-              </Link>
-              <Link
-                to="/login"
-                style={{
-                  fontWeight: "bold",
-                  fontSize: "clamp(1rem, 2vw, 1.25rem)",
-                  color: "#333",
-                  textDecoration: "none",
-                  padding: "0.5rem",
-                  borderRadius: "4px",
-                  transition: "all 0.3s",
-                  ":hover": {
-                    backgroundColor: "#f0f0f0",
-                  },
-                }}
-              >
-                Login
-              </Link>
-              <Link
-                to="/signup"
-                style={{
-                  fontWeight: "bold",
-                  fontSize: "clamp(1rem, 2vw, 1.25rem)",
-                  color: "#333",
-                  textDecoration: "none",
-                  padding: "0.5rem",
-                  borderRadius: "4px",
-                  transition: "all 0.3s",
-                  ":hover": {
-                    backgroundColor: "#f0f0f0",
-                  },
-                }}
-              >
-                Signup
-              </Link>
+              <MotionLink to="/help">Help</MotionLink>
+              <MotionLink to="/login">Login</MotionLink>
+              <MotionLink to="/signup">Signup</MotionLink>
             </div>
           )}
         </nav>
       </div>
-    </header>
+    </motion.header>
   );
 }
+
+const MotionLink = motion(Link);
+
+const StyledMotionLink = ({ to, children }) => (
+  <MotionLink
+    to={to}
+    whileHover={{ scale: 1.1, color: "#1aac83" }}
+    transition={{ type: "spring", stiffness: 300 }}
+    style={{
+      fontWeight: "bold",
+      fontSize: "clamp(1rem, 2vw, 1.25rem)",
+      color: "#333",
+      textDecoration: "none",
+      padding: "0.5rem",
+      borderRadius: "4px",
+    }}
+  >
+    {children}
+  </MotionLink>
+);
+
 export default Navbar;
