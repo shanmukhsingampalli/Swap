@@ -17,7 +17,7 @@ function Navbar() {
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.6, ease: "easeOut" }}
       style={{
-        background: "linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%)", // Added gradient background
+        // Added gradient background
         boxShadow: "0 2px 4px rgba(0,0,0,0.1)",
         position: "sticky",
         top: 0,
@@ -33,7 +33,7 @@ function Navbar() {
           alignItems: "center",
           justifyContent: "space-between",
           flexWrap: "wrap",
-          backgroundColor: "rgba(255, 255, 255, 0.9)", // Added semi-transparent white background
+          backgroundColor: "#f5f5f5", // Changed to light gray
           borderRadius: "8px",
         }}
       >
