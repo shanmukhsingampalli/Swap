@@ -119,24 +119,26 @@ function Navbar() {
   );
 }
 
-const MotionLink = motion(Link);
-
-const StyledMotionLink = ({ to, children }) => (
-  <MotionLink
-    to={to}
+// ✅ Reusable animated Link component (motion)
+const MotionLink = ({ to, children }) => (
+  <motion.div
     whileHover={{ scale: 1.1, color: "#1aac83" }}
     transition={{ type: "spring", stiffness: 300 }}
-    style={{
-      fontWeight: "bold",
-      fontSize: "clamp(1rem, 2vw, 1.25rem)",
-      color: "#333",
-      textDecoration: "none",
-      padding: "0.5rem",
-      borderRadius: "4px",
-    }}
   >
-    {children}
-  </MotionLink>
+    <Link
+      to={to}
+      style={{
+        fontWeight: "bold",
+        fontSize: "clamp(1rem, 2vw, 1.25rem)",
+        color: "#333",
+        textDecoration: "none",
+        padding: "0.5rem",
+        borderRadius: "4px",
+      }}
+    >
+      {children}
+    </Link>
+  </motion.div>
 );
 
 export default Navbar;
