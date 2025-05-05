@@ -37,12 +37,12 @@ function Navbar() {
       >
         <Link to="/" style={{ textDecoration: "none" }}>
           <motion.h1
-            whileHover={{ scale: 1.05 }}
+            whileHover={{ scale: 1.05, color: "#1aac83" }}
             transition={{ type: "spring", stiffness: 300 }}
             style={{
-              color: "#1aac83",
               fontSize: "clamp(1.5rem, 4vw, 2rem)",
               margin: 0,
+              color: "#1aac83",
               cursor: "pointer",
             }}
           >
@@ -122,8 +122,19 @@ function Navbar() {
 // ✅ Reusable animated Link component (motion)
 const MotionLink = ({ to, children }) => (
   <motion.div
-    whileHover={{ scale: 1.1, color: "#1aac83" }}
-    transition={{ type: "spring", stiffness: 300 }}
+    whileHover={{
+      scale: 1.1,
+      color: "#1aac83",
+      rotate: -5,
+      transition: { type: "spring", stiffness: 300 },
+    }}
+    whileTap={{
+      scale: 0.95,
+      transition: { type: "spring", stiffness: 200 },
+    }}
+    style={{
+      display: "inline-block",
+    }}
   >
     <Link
       to={to}
@@ -134,6 +145,7 @@ const MotionLink = ({ to, children }) => (
         textDecoration: "none",
         padding: "0.5rem",
         borderRadius: "4px",
+        transition: "all 0.3s ease",
       }}
     >
       {children}
